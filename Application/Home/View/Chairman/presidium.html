@@ -1,0 +1,203 @@
+    <include file="Layout:header" />
+        <div id="page-wrapper">
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul id="tableactiondTab" class="nav nav-tabs">
+                            <li class="active"><a href="#" data-toggle="tab">{$orgname}</a></li>
+                        </ul>
+                        <div id="tableactionTabContent" class="tab-content">
+                            <div id="" class="tab-pane fade active in">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="table-container">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>职位</th>
+                                                        <th>学号</th>
+                                                        <th>姓名</th>
+                                                        <th>性别</th>
+                                                        <th>手机号</th>
+                                                        <th>学院</th>
+                                                        <th width="60px">操作</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <volist name = "presidum" id = "presidum">
+                                                        <input type="hidden" name="id" id="presidum_id{$presidum.id}"  value="{$presidum.id}">
+                                                        <tr>
+                                                            <td>{$orgname}{$presidum.position}</td>
+                                                            <td>{$presidum.stu_num}</td>
+                                                            <td>{$presidum.name}</td>
+                                                            <td>{$presidum.gender}</td>
+                                                            <td>{$presidum.phone}</td>
+                                                            <td>{$presidum.academy}</td>
+                                                            <td><span class="label label-sm label-primary userid-{$presidum.id}">删除</span></td>
+                                                        </tr>
+                                                    </volist>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" data-target="#modal-add-people" data-toggle="modal" class="btn btn-default" style="float: right;background-color: #fff;">人员添加</button>
+                        <div id="modal-add-people" tabindex="-1" role="dialog" aria-labelledby="modal-prompt-label" aria-hidden="true" class="modal fade" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+                                        <h4 id="modal-prompt-label" class="modal-title">新人员添加</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form  class="form-horizontal" method = "post">
+                                            <div class="form-body pal">
+                                                <div class="form-group">
+                                                    <label for="presidium" class="col-md-3 control-label">组织</label>
+                                                    <div class="col-md-9">
+                                                        <div class="input-icon right">
+                                                            <p class="col-md-9 control-label" style="text-align: left" id = "">
+                                                                红岩网校工作站
+                                                                <input type="hidden" name="id" id="organisation"  value="1">
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="job" class="col-md-3 control-label">职位</label>
+                                                    <div class="col-md-9">
+                                                        <div class="input-icon right">
+                                                            <select class="form-control" id="position" style="height: 31px;font-size: 12px;" name ="position">
+                                                                <option value = "6">副主席</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="studentID" class="col-md-3 control-label">学号</label>
+                                                    <div class="col-md-9">
+                                                        <div class="input-icon right">
+                                                            <input id="studentID" type="text" placeholder="请输入需要新添加人员的学号" class="form-control" style="height: 31px;font-size: 12px;-webkit-border-radius:4px !important;-moz-border-radius: 4px !important;border-radius: 4px !important" name = "user_id">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <p class="col-md-3 control-label">姓名</p>
+                                                    <p class="col-md-9 control-label" style="text-align: left" id = "searchname"></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <p class="col-md-3 control-label">性别</p>
+                                                    <p class="col-md-9 control-label" style="text-align: left" id = "searchgender"></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <p class="col-md-3 control-label">手机号</p>
+                                                    <p class="col-md-9 control-label" style="text-align: left" id ="searchphone"></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <p class="col-md-3 control-label">学院</p>
+                                                    <p class="col-md-9 control-label" style="text-align: left" id = "searchacademy"></p>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" data-dismiss="modal" class="btn btn-default" id = "">取消</button>
+                                        <button type="button" class="btn btn-primary" id ="submit">确认</button>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <include file="Layout:footer" />
+
+    <script>
+      // (function(){
+      //   var presidum_id=$("#presidum_id" + presidum_id).val();
+      //     $("#delete" + presidum_id).click(function(){
+      //       for()
+      //       $.post("{:U('Chairman/deletePre')}",
+      //       {
+      //         presidum_id:presidum_id,
+      //       },
+      //       function(data,status){
+
+      //       if(data == 1){
+      //         alert('成功');
+      //       }else{
+      //           alert(data);
+      //       }
+      //        parent.location.reload();
+      //       });
+      //     });
+      //   })();
+          (function(){
+              $("#studentID" ).change(function(){
+                var studentID=$("#studentID").val();
+                $.post("{:U('Chairman/searchStudent')}",
+                {
+                  studentID:studentID
+                },
+                function(data,status){
+                    $("#searchname").empty();
+                    $("#searchname").append(data['name']);
+                    $("#searchgender").empty();
+                    $("#searchgender").append(data['gender']);
+                    $("#searchphone").empty();
+                    $("#searchphone").append(data['phone']);
+                    $("#searchacademy").empty();
+                    $("#searchacademy").append(data['academy']);
+                });
+              });
+            })();
+    </script>
+    <script>
+        var button = $('tr > td > span');
+        $(button).each(function() {
+            $(this).on('click', function() {
+                var clazz = this.className.split(' ');
+                var id = clazz[clazz.length - 1].substr(clazz.lastIndexOf('-'));
+                $.post("{:U('Chairman/deletePre')}",
+                {
+                  presidum_id:id
+                },
+                function(data,status){
+                    if(data == 1){
+                      $(this).closest('tr').remove();
+                    }else{
+                        alert(data);
+                    }
+                    parent.location.reload();
+                });
+            });
+        });
+    </script>
+    <script>
+        (function(){
+            $("#submit").click(function(){
+                var user_id=$("#studentID").val();
+                var organisation=$("#organisation").val();
+                var position=$("#position").val();
+                $.post("{:U('Chairman/addpre')}",
+                {
+                  user_id:user_id,
+                  organisation:organisation,
+                  position:position
+                },
+                function(data,status){
+                    if(data == 0){
+                      alert('输入信息有误');
+                    }else{
+                        
+                        alert(data);
+                    }
+                    parent.location.reload();
+                });                
+            });
+        })(); 
+    </script>

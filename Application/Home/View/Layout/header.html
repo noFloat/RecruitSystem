@@ -4,8 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <title>{{$title}}</title>
+<<<<<<< HEAD
         <link rel="stylesheet" href="__PUBLIC__/http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700">
         <link rel="stylesheet" href="__PUBLIC__/http://fonts.googleapis.com/css?family=Oswald:400,700,300">
+=======
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
+>>>>>>> XU
         <link rel="stylesheet" href="__PUBLIC__/vendors/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="__PUBLIC__/vendors/bootstrap/css/bootstrap.min.css">
         <!--LOADING STYLESHEET FOR PAGE-->
@@ -66,6 +71,7 @@
                         </form>
                         <!-- -->
                         <ul class="nav navbar navbar-top-links navbar-right mbn">
+<<<<<<< HEAD
                             <li class="dropdown">
                                 <a data-hover="dropdown" href="#" class="dropdown-toggle">
                                     <i class="fa fa-bell fa-fw"></i>
@@ -175,10 +181,13 @@
                                     </li>
                                 </ul>
                             </li>
+=======
+>>>>>>> XU
 
                             <li class="dropdown topbar-user">
                                 <a data-hover="dropdown" href="#" class="dropdown-toggle">
                                     <img src="" alt="" class="img-responsive img-circle" />&nbsp;
+<<<<<<< HEAD
                                     <span >John Doe</span>&nbsp;
                                     <span class="caret"></span>
                                 </a>
@@ -209,6 +218,25 @@
                                     <span class="badge badge-info">3</span>
                                 </a>
                             </li>
+=======
+                                    <span >选择组织</span>&nbsp;
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user pull-right">
+                                    <volist name = "org" id = "org">
+                                        <li>
+                                            <a href="{:U('Base/checkOrg',array('orgid'=>$org[organization_id]))}">
+                                            {$org.org_name.organization}
+                                            </a>
+                                        </li>
+                                    </volist>
+<!--                                     <li>
+                                            <a href = "{$checkState}" class="fa fa-key"></i>{$checkLogin}
+                                        </a>
+                                    </li> -->
+                                </ul>
+                            </li>
+>>>>>>> XU
                         </ul>
                     </div>
                 </nav>
@@ -225,7 +253,11 @@
                             <li class="user-panel">
                                 <div class="thumb"><img src="" alt="" class="img-circle" /></div>
                                 <div class="info">
+<<<<<<< HEAD
                                     <p>John Doe</p>
+=======
+                                    <p><a href = "{:U('Personal/index')}">{$name}</a></p>
+>>>>>>> XU
                                     <ul class="list-inline list-unstyled">
                                         <li><a href="extra-profile.html" data-hover="tooltip" title="Profile"><i class="fa fa-user"></i></a>
                                         </li>
@@ -233,7 +265,11 @@
                                         </li>
                                         <li><a href="#" data-hover="tooltip" title="Setting" data-toggle="modal" data-target="#modal-config"><i class="fa fa-cog"></i></a>
                                         </li>
+<<<<<<< HEAD
                                         <li><a href="extra-signin.html" data-hover="tooltip" title="Logout"><i class="fa fa-sign-out"></i></a>
+=======
+                                        <li><a href="{$checkState}" data-hover="tooltip" title="Logout"><i class="fa fa-sign-out"></i></a>
+>>>>>>> XU
                                         </li>
                                     </ul>
                                 </div>
@@ -257,7 +293,11 @@
                                 </a>
                                 <ul class="nav nav-second-level">
                                     <li>
+<<<<<<< HEAD
                                         <a href="presidium">
+=======
+                                        <a href="{:U('Chairman/index')}">
+>>>>>>> XU
                                             <i class="fa fa-group"></i>
                                             <span class="submenu-title">主席团详情</span>
                                         </a>
